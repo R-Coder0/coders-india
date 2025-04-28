@@ -12,10 +12,6 @@ import {
   Users,
   ShieldCheck,
   Sparkles,
-  BookOpen,
-  GraduationCap,
-  Clock,
-  Building,
   ArrowRight,
   Code2,
   Globe,
@@ -323,7 +319,7 @@ export default function Home() {
                 Welome to AI and coding World
               </h2>
               <p className="text-lg pb-3 mb-6 font-medium">
-                Unlock your coding potential! Whether you're a beginner or
+                Unlock your coding potential! Whether you&apos;re a beginner or
                 leveling up, our platform offers hands-on tutorials, real world
                 assignments, mock tests, and practice questions. Learn,
                 practice, and master coding—all in one place. Start your journey
