@@ -30,7 +30,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { finalCta } from "@/data/finalcta";
+import { finalCta } from "@/data/Cta";
 import { pythonSection } from "@/data/python";
 import { roadmapSteps } from "@/data/roadmapSteps";
 import { testimonials } from "@/data/testimonials";
