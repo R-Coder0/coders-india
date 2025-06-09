@@ -20,7 +20,7 @@ export const testimonials = [
       role: "Software Engineer at Flipkart",
       review:
         "From beginner to pro! Thanks to Coders India for amazing support, mentorship and career guidance!",
-      image: "/students/priya.png",
+      image: "/images/2.png",
     },
   ];
   

@@ -1,6 +1,11 @@
 // data/footerLinks.ts
 
-export const footerColumns = [
+export type FooterColumn = {
+    title: string;
+    links: string[];
+  };
+  
+  export const footerColumns: FooterColumn[] = [
     {
       title: "Company",
       links: [

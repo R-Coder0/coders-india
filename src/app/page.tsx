@@ -38,25 +38,31 @@ export default function Home() {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
-  const [counters, setCounters] = useState({
-    years: 0,
-    experts: 0,
-    projectsOnTime: 0,
-    returnRate: 0,
-  });
-
+  interface Counters {
+    years: number;
+    experts: number;
+    projectsOnTime: number;
+    returnRate: number;
+  }
+// In your component:
+const [counters, setCounters] = useState<Counters>({
+  years: 0,
+  experts: 0,
+  projectsOnTime: 0,
+  returnRate: 0,
+});
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Animate counters on component mount
-  useEffect(() => {
-    const targetValues = {
-      years: 13,
-      experts: 150,
-      projectsOnTime: 98,
-      returnRate: 93,
-    };
+// Animate counters on component mount
+useEffect(() => {
+  const targetValues: Counters = {
+    years: 13,
+    experts: 150,
+    projectsOnTime: 98,
+    returnRate: 93,
+  };
 
     const duration = 2000;
     const frameDuration = 20; 
@@ -64,36 +70,37 @@ export default function Home() {
 
     const increments = Object.entries(targetValues).reduce(
       (acc, [key, value]) => {
-        acc[key] = value / steps;
+        acc[key as keyof Counters] = value / steps;
         return acc;
       },
-      {}
+      {} as Record<keyof Counters, number>
     );
+  
 
     let frame = 0;
 
     const interval = setInterval(() => {
       frame++;
-
+  
       setCounters((prevCounters) => {
         const newCounters = { ...prevCounters };
-
-        Object.keys(targetValues).forEach((key) => {
+  
+        (Object.keys(targetValues) as Array<keyof Counters>).forEach((key) => {
           if (frame < steps) {
             newCounters[key] = Math.round(increments[key] * frame);
           } else {
             newCounters[key] = targetValues[key];
           }
         });
-
+  
         return newCounters;
       });
-
+  
       if (frame >= steps) {
         clearInterval(interval);
       }
     }, frameDuration);
-
+  
     return () => clearInterval(interval);
   }, []);
 
@@ -792,7 +799,8 @@ export default function Home() {
           </div>
 
           {/* Right Image */}
-          <div data-aos="fade-left">
+          <div             data-aos="fade-up"
+            data-aos-delay="200">
             <Image
               src={pythonSection.image}
               alt="Python DSA Code Screenshot"
@@ -807,7 +815,7 @@ export default function Home() {
       <section className="pt-10 pb-4 bg-gradient-to-b from-white via-blue-50 to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Right: Image */}
-          <div className="w-full flex justify-center" data-aos="fade-left">
+          <div className="w-full hidden md:flex justify-center" data-aos="fade-left">
             <Image
               src="/images/banner.png" // ⬅️ Your uploaded image
               alt="Learning Roadmap"
