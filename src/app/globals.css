@@ -50,3 +50,14 @@ thead, tbody, tfoot, tr, td, th {
     text-align: start !important;
   }
 }
+.page-container {
+      position: relative;
+      width: 100%;
+      height: auto; /* Adjust as needed */
+      perspective: 1000px;
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+    }
+    .page-container.flip {
+      transform: rotateY(-180deg);
+    }

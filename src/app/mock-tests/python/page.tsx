@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import { useEffect } from 'react';
-import Link from "next/link";
+// import { useEffect } from 'react';
 import {
   BookOpenCheck,
   Brain,
@@ -85,27 +85,8 @@ const PythonMockTestLevels = () => {
   const router = useRouter();
 
   const handleLevelClick = (slug: string) => {
-    const userInfoStr = localStorage.getItem('userInfo');
-    const userInfo = userInfoStr ? JSON.parse(userInfoStr) : null;
-
-    if (userInfo) {
-      router.push(`/mock-tests/python/${slug}`);
-    } else {
-      const loginModalEvent = new CustomEvent('open-login-modal');
-      window.dispatchEvent(loginModalEvent);
-    }
+    router.push(`/mock-tests/python/${slug}`);
   };
-
-  // Listen for login-success event
-  useEffect(() => {
-    const handleLoginSuccess = () => {
-      console.log("Login success event received in levels page!");
-      router.refresh();  // Refresh page so user can click levels without issues
-    };
-
-    window.addEventListener('login-success', handleLoginSuccess);
-    return () => window.removeEventListener('login-success', handleLoginSuccess);
-  }, [router]);
 
   return (
     <div className="min-h-screen py-16 px-6 bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50">
@@ -185,7 +166,7 @@ const PythonMockTestLevels = () => {
                 <div className="flex-grow">
                   <h4 className="text-gray-800 font-semibold text-sm mb-3 flex items-center gap-2">
                     <Trophy className="w-4 h-4 text-yellow-500" />
-                    What you'll learn:
+                    What you&apos;ll learn:
                   </h4>
                   <ul className="space-y-2">
                     {level.features.map((feature, idx) => (

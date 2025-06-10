@@ -8,7 +8,8 @@ export const questions = [
       "Interpreted and dynamically typed",
       "Compiled and statically typed"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Python is an interpreted language, which means that the code is executed line by line, and it is dynamically typed, meaning variable types are determined at runtime."
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@ export const questions = [
       "Python does not support object-oriented programming",
       "Python is a high-level language"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Python supports object-oriented programming, so the statement that Python does not support OOP is incorrect."
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@ export const questions = [
       "To provide style guidelines for writing Python code",
       "To describe installation procedures for Python"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "PEP8 is the Python Enhancement Proposal that provides guidelines on how to write Python code in a consistent style, improving readability."
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@ export const questions = [
       "Python uses reference counting and garbage collection",
       "Python stores all variables in stack memory only"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Python uses both reference counting and garbage collection to manage memory automatically, freeing unused objects."
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@ export const questions = [
       "It will install the numpy package using pip",
       "It will update Python"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The command `pip install numpy` installs the numpy package, which is used for numerical computations in Python."
   },
   {
     "id": 6,
@@ -63,7 +68,8 @@ export const questions = [
       "Low-level language",
       "Dynamically typed"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Python is a high-level language, not a low-level language. It is portable, interpreted, and dynamically typed."
   },
   {
     "id": 7,
@@ -74,7 +80,8 @@ export const questions = [
       "Python is first compiled to bytecode, then interpreted",
       "Python compiles code at the time of importing modules only"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Python code is first compiled to bytecode, which is a lower-level representation, and then interpreted by the Python interpreter."
   },
   {
     "id": 8,
@@ -85,7 +92,8 @@ export const questions = [
       "PyPy",
       "RubyPython"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "RubyPython is not a valid implementation of Python. CPython, Jython, and PyPy are all valid implementations."
   },
   {
     "id": 9,
@@ -96,7 +104,8 @@ export const questions = [
       "Python Execution Plan",
       "Python Encoding Protocol"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "PEP stands for Python Enhancement Proposal, which is a design document providing information or proposing changes to Python."
   },
   {
     "id": 10,
@@ -107,7 +116,8 @@ export const questions = [
       "To improve performance",
       "To define code blocks clearly"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Python uses indentation to define code blocks. This makes the structure of the code visually clear and eliminates the need for braces."
   },
   {
     "id": 11,
@@ -118,7 +128,8 @@ export const questions = [
       ".pyo",
       ".pyd"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": ".pyc files are automatically created to store compiled bytecode, allowing for faster subsequent imports of modules."
   },
   {
     "id": 12,
@@ -129,7 +140,8 @@ export const questions = [
       "interpreter",
       "PEP8"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Pyenv helps in managing multiple versions of Python and their environments, making it easier to switch between them."
   },
   {
     "id": 13,
@@ -140,7 +152,8 @@ export const questions = [
       "python --version",
       "python.version()"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The command `python --version` will display the version of Python installed on your system."
   },
   {
     "id": 14,
@@ -151,7 +164,8 @@ export const questions = [
       "Read-Evaluate-Print-Loop",
       "Run-Encode-Print-Log"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "REPL stands for Read-Evaluate-Print-Loop, a simple interactive environment for Python that reads user input, evaluates it, prints the result, and loops back."
   },
   {
     "id": 15,
@@ -162,7 +176,8 @@ export const questions = [
       "PIP is used to install Python itself",
       "PIP can be used to uninstall packages"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "PIP is the package manager for Python and is used to install and manage packages, but it is not used to install Python itself."
   },
   {
     "id": 16,
@@ -173,7 +188,8 @@ export const questions = [
       "ISO-8859-1",
       "Unicode"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The default encoding for Python source files is UTF-8, which supports a wide range of characters from different languages."
   },
   {
     "id": 17,
@@ -184,7 +200,8 @@ export const questions = [
       "Python uses dynamic and strong typing",
       "Python uses compile-time type checking"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Python uses dynamic typing, meaning the type of a variable is determined at runtime, and it also supports strong typing to prevent unintended type conversions."
   },
   {
     "id": 18,
@@ -195,7 +212,8 @@ export const questions = [
       "\"There should be one—and preferably only one—obvious way to do it\"",
       "\"Errors should never be raised\""
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Python's philosophy emphasizes readability and simplicity, with a focus on having one obvious way to do something."
   },
   {
     "id": 19,
@@ -206,7 +224,8 @@ export const questions = [
       "The Zen of Python",
       "List of installed modules"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The command `python import this` outputs 'The Zen of Python', a collection of guiding principles for writing Pythonic code."
   },
   {
     "id": 20,
@@ -217,6 +236,7 @@ export const questions = [
       "It holds all the pip packages",
       "It stores backup scripts"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "__pycache__ stores compiled bytecode files (e.g., .pyc files) that are used to speed up the execution of Python programs by avoiding recompilation."
   }
 ];
