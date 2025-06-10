@@ -134,7 +134,7 @@ export default function MockTestAttemptPage() {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
         <div className="text-center bg-white rounded-xl shadow-lg p-12 border border-slate-200">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-3 border-slate-300 border-t-slate-600 mb-6"></div>
-          <h2 className="text-xl font-semibold text-slate-700 mb-2">
+          <h2 className="text-xl font-semibold text-[#004bac] mb-2">
             Loading Your Test
           </h2>
           <p className="text-slate-500">
@@ -178,283 +178,289 @@ export default function MockTestAttemptPage() {
   const progressPercentage = ((currentIndex + 1) / questions.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pb-2.5 mt-12">
       {!showResult ? (
-        <div className="container mx-auto px-6 py-8 max-w-4xl">
-          {/* Header */}
-          <div className="bg-white rounded-xl shadow-lg border border-slate-200 mb-8 overflow-hidden">
-            <div className="bg-gradient-to-r from-slate-700 to-slate-800 p-6 text-white">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h1 className="text-2xl font-bold mb-2">Python Mock Test</h1>
-                  <div className="flex items-center space-x-4 text-slate-200">
-                    <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium">
-                      Level: {level?.charAt(0).toUpperCase() + level?.slice(1)}
-                    </span>
-                    <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium">
-                      Test: {testId}
-                    </span>
+        <>
+          {/* Header - Fixed at top */}
+          <div className="bg-white shadow-lg border-b border-slate-200 flex-shrink-0 sticky top-0 z-40">
+            <div className="container mx-auto px-1 pt-10 pb-4  max-w-6xl">
+              <div className="bg-[#004bac] rounded-xl p-6 text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h1 className="text-2xl font-bold mb-2">Python Mock Test</h1>
+                    <div className="flex items-center space-x-4 text-slate-200">
+                      <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium text-black">
+                        Level: {level?.charAt(0).toUpperCase() + level?.slice(1)}
+                      </span>
+                      <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium text-black">
+                        Test: {testId}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold">{currentIndex + 1}</div>
+                    <div className="text-slate-200 text-sm">of {questions.length}</div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold">{currentIndex + 1}</div>
-                  <div className="text-slate-200 text-sm">of {questions.length}</div>
+
+                {/* Progress Bar */}
+                <div className="w-full bg-white bg-opacity-20 rounded-full h-2">
+                  <div
+                    className="bg-white h-2 rounded-full transition-all duration-500 ease-out"
+                    style={{ width: `${progressPercentage}%` }}
+                  ></div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Progress Bar */}
-              <div className="w-full bg-white bg-opacity-20 rounded-full h-2">
+          {/* Main Question Area */}
+          <div className="container mx-auto px-2 py-4 max-w-6xl">
+            <div className="relative    w-full">
+              {/* Navigation Buttons - Left and Right */}
+              <button
+                disabled={currentIndex === 0 || isTransitioning}
+                onClick={goToPrevious}
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 bg-white shadow-lg rounded-full border border-slate-200 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center group"
+                aria-label="Previous question"
+              >
+                <svg
+                  className="w-5 h-5 text-[#004bac] group-hover:text-slate-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              <button
+                disabled={currentIndex === questions.length - 1 || isTransitioning}
+                onClick={goToNext}
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 bg-white shadow-lg rounded-full border border-slate-200 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center group"
+                aria-label="Next question"
+              >
+                <svg
+                  className="w-5 h-5 text-slate-600 group-hover:text-slate-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+
+              {/* Realistic Flip Page - Fixed Height Container */}
+              <div
+                className="relative w-full mx-auto cursor-default select-none"
+                style={{ height: '600px' }}
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                {/* Previous question side (Back of page) */}
                 <div
-                  className="bg-white h-2 rounded-full transition-all duration-500 ease-out"
-                  style={{ width: `${progressPercentage}%` }}
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Question Book Container */}
-          <div className="relative perspective-1500 w-full max-w-4xl mx-auto" style={{ height: "480px" }}>
-            {/* Navigation Buttons - Left and Right */}
-            <button
-              disabled={currentIndex === 0 || isTransitioning}
-              onClick={goToPrevious}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 bg-white shadow-lg rounded-full border border-slate-200 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center group"
-              aria-label="Previous question"
-            >
-              <svg
-                className="w-5 h-5 text-slate-600 group-hover:text-slate-800"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-
-            <button
-              disabled={currentIndex === questions.length - 1 || isTransitioning}
-              onClick={goToNext}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 bg-white shadow-lg rounded-full border border-slate-200 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center group"
-              aria-label="Next question"
-            >
-              <svg
-                className="w-5 h-5 text-slate-600 group-hover:text-slate-800"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-
-            {/* Realistic Flip Page */}
-            <div
-              className={`relative w-full h-full mx-auto cursor-default select-none`}
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              {/* Previous question side (Back of page) */}
-              <div
-                aria-hidden={flipStage === "end"}
-                className={`absolute top-0 left-0 w-full h-full bg-white rounded-xl shadow-lg border border-slate-200 px-8 py-6
-                  backface-hidden
-                  ${
-                    flipDirection === "next"
-                      ? "origin-left"
-                      : "origin-right"
-                  }
-                  ${
-                    flipStage === "start"
-                      ? flipDirection === "next"
-                        ? "flip-start-next"
-                        : "flip-start-prev"
-                      : flipStage === "half"
-                      ? flipDirection === "next"
-                        ? "flip-mid-next"
-                        : "flip-mid-prev"
-                      : "hidden"
-                  }
-                `}
-                style={{ pointerEvents: "none" }}
-              >
-                {/* Content: previousQuestion */}
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
-                    {prevIndex + 1}
-                  </div>
-                  <div className="text-sm text-slate-500 font-medium">
-                    Question {prevIndex + 1} of {questions.length}
-                  </div>
-                </div>
-
-                <h2 className="text-xl font-semibold text-slate-800 leading-relaxed mb-8">
-                  {previousQuestion?.question}
-                </h2>
-
-                <div className="space-y-3">
-                  {previousQuestion?.options.map((option, idx) => {
-                    const isSelected = selectedAnswers[prevIndex] === idx;
-                    return (
-                      <label
-                        key={idx}
-                        className={`block p-3 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-sm ${
-                          isSelected
-                            ? "bg-slate-700 text-white border-slate-700"
-                            : "bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100"
-                        }`}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div
-                            className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-sm font-bold ${
-                              isSelected
-                                ? "border-white bg-white text-slate-700"
-                                : "border-slate-400"
-                            }`}
-                          >
-                            {String.fromCharCode(65 + idx)}
-                          </div>
-                          <span className="flex-1 text-base font-medium">
-                            {option}
-                          </span>
-                        </div>
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Current question side (Front of page) */}
-              <div
-                aria-hidden={flipStage !== "end"}
-                className={`absolute top-0 left-0 w-full h-full bg-white rounded-xl shadow-lg border border-slate-200 px-8 py-6
-                  backface-hidden
-                  ${
-                    flipDirection === "next"
-                      ? "origin-left"
-                      : "origin-right"
-                  }
-                  ${
-                    flipStage === "end"
-                      ? ""
-                      : flipDirection === "next"
-                      ? "flip-front-next"
-                      : "flip-front-prev"
-                  }
-                `}
-              >
-                {/* Content: currentQuestion */}
-                <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
-                    {currentIndex + 1}
-                  </div>
-                  <div className="text-sm text-slate-500 font-medium">
-                    Question {currentIndex + 1} of {questions.length}
-                  </div>
-                </div>
-
-                <h2 className="text-xl font-semibold text-slate-800 leading-relaxed mb-8">
-                  {currentQuestion?.question}
-                </h2>
-
-                <div className="space-y-3">
-                  {currentQuestion?.options.map((option, idx) => {
-                    const isSelected = selectedAnswers[currentIndex] === idx;
-                    return (
-                      <label
-                        key={idx}
-                        className={`block p-3 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-sm ${
-                          isSelected
-                            ? "bg-slate-700 text-white border-slate-700"
-                            : "bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100"
-                        }`}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <div
-                            className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-sm font-bold ${
-                              isSelected
-                                ? "border-white bg-white text-slate-700"
-                                : "border-slate-400"
-                            }`}
-                          >
-                            {String.fromCharCode(65 + idx)}
-                          </div>
-                          <span className="flex-1 text-base font-medium">
-                            {option}
-                          </span>
-                        </div>
-                        <input
-                          type="radio"
-                          name={`question-${currentQuestion?.id}`}
-                          checked={isSelected}
-                          onChange={() => handleSelectOption(idx)}
-                          className="sr-only"
-                        />
-                      </label>
-                    );
-                  })}
-                </div>
-
-                {/* Feedback & Explanation */}
-                {answerFeedback[currentIndex] && (
-                  <div className="bg-slate-50 rounded-lg p-6 border border-slate-200 mt-8">
-                    <div
-                      className={`text-base font-semibold mb-3 ${
-                        answerFeedback[currentIndex].includes("Correct")
-                          ? "text-green-600"
-                          : "text-red-600"
-                      }`}
-                    >
-                      {answerFeedback[currentIndex]}
+                  aria-hidden={flipStage === "end"}
+                  className={`absolute top-0 left-0 w-full bg-white rounded-xl shadow-lg border border-slate-200 px-8 py-6
+                    backface-hidden
+                    ${
+                      flipDirection === "next"
+                        ? "origin-left"
+                        : "origin-right"
+                    }
+                    ${
+                      flipStage === "start"
+                        ? flipDirection === "next"
+                          ? "flip-start-next"
+                          : "flip-start-prev"
+                        : flipStage === "half"
+                        ? flipDirection === "next"
+                          ? "flip-mid-next"
+                          : "flip-mid-prev"
+                        : "hidden"
+                    }
+                  `}
+                  style={{ pointerEvents: "none", height: '600px' }}
+                >
+                  {/* Content: previousQuestion */}
+                  <div className="flex items-center mb-6">
+                    <div className="w-10 h-10 bg-[#004bac] rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+                      {prevIndex + 1}
                     </div>
-                    {selectedAnswers[currentIndex] !== -1 && (
-                      <div className="text-slate-700 text-sm leading-relaxed">
-                        <strong className="text-slate-800">Explanation:</strong>{" "}
-                        {currentQuestion?.explanation}
-                      </div>
-                    )}
+                    <div className="text-sm text-slate-500 font-medium">
+                      Question {prevIndex + 1} of {questions.length}
+                    </div>
                   </div>
-                )}
 
-                {/* Submit Button (only on last question and visible only when not transitioning) */}
-                {currentIndex === questions.length - 1 && !isTransitioning && (
-                  <div className="border-t border-slate-200 p-6 bg-slate-50 mt-8">
-                    <div className="text-center">
-                      <button
-                        onClick={handleSubmit}
-                        className="inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all duration-200 shadow-sm"
-                      >
-                        <svg
-                          className="w-5 h-5 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                  <h2 className="text-xl font-semibold text-slate-800 leading-relaxed mb-8">
+                    {previousQuestion?.question}
+                  </h2>
+
+                  <div className="space-y-3 mb-6">
+                    {previousQuestion?.options.map((option, idx) => {
+                      const isSelected = selectedAnswers[prevIndex] === idx;
+                      return (
+                        <label
+                          key={idx}
+                          className={`block p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-sm ${
+                            isSelected
+                              ? "bg-[#004bac] text-white border-[#004bac]"
+                              : "bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100"
+                          }`}
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                        Submit Test
-                      </button>
+                          <div className="flex items-center space-x-3">
+                            <div
+                              className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-sm font-bold flex-shrink-0 ${
+                                isSelected
+                                  ? "border-white bg-white text-[#004bac]"
+                                  : "border-slate-400"
+                              }`}
+                            >
+                              {String.fromCharCode(65 + idx)}
+                            </div>
+                            <span className="flex-1 text-base font-medium">
+                              {option}
+                            </span>
+                          </div>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Current question side (Front of page) */}
+                <div
+                  aria-hidden={flipStage !== "end"}
+                  className={`absolute top-0 left-0 w-full bg-white rounded-xl shadow-lg border border-slate-200 px-8 py-6 overflow-y-auto
+                    backface-hidden
+                    ${
+                      flipDirection === "next"
+                        ? "origin-left"
+                        : "origin-right"
+                    }
+                    ${
+                      flipStage === "end"
+                        ? ""
+                        : flipDirection === "next"
+                        ? "flip-front-next"
+                        : "flip-front-prev"
+                    }
+                  `}
+                  style={{ height: '600px' }}
+                >
+                  {/* Content: currentQuestion */}
+                  <div className="flex items-center mb-6">
+                    <div className="w-10 h-10 bg-[#004bac] rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+                      {currentIndex + 1}
+                    </div>
+                    <div className="text-sm text-slate-500 font-medium">
+                      Question {currentIndex + 1} of {questions.length}
                     </div>
                   </div>
-                )}
+
+                  <h2 className="text-xl font-semibold text-slate-800 leading-relaxed mb-8">
+                    {currentQuestion?.question}
+                  </h2>
+
+                  <div className="space-y-3 mb-6">
+                    {currentQuestion?.options.map((option, idx) => {
+                      const isSelected = selectedAnswers[currentIndex] === idx;
+                      return (
+                        <label
+                          key={idx}
+                          className={`block p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-sm ${
+                            isSelected
+                              ? "bg-[#004bac] text-white border-[#004bac]"
+                              : "bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100"
+                          }`}
+                        >
+                          <div className="flex items-center space-x-3">
+                            <div
+                              className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-sm font-bold flex-shrink-0 ${
+                                isSelected
+                                  ? "border-white bg-white text-[#004bac]"
+                                  : "border-slate-400"
+                              }`}
+                            >
+                              {String.fromCharCode(65 + idx)}
+                            </div>
+                            <span className="flex-1 text-base font-medium">
+                              {option}
+                            </span>
+                          </div>
+                          <input
+                            type="radio"
+                            name={`question-${currentQuestion?.id}`}
+                            checked={isSelected}
+                            onChange={() => handleSelectOption(idx)}
+                            className="sr-only"
+                          />
+                        </label>
+                      );
+                    })}
+                  </div>
+
+                  {/* Feedback & Explanation */}
+                  {answerFeedback[currentIndex] && (
+                    <div className="bg-slate-50 rounded-lg p-6 border border-slate-200 mb-6">
+                      <div
+                        className={`text-base font-semibold mb-3 ${
+                          answerFeedback[currentIndex].includes("Correct")
+                            ? "text-green-600"
+                            : "text-red-600"
+                        }`}
+                      >
+                        {answerFeedback[currentIndex]}
+                      </div>
+                      {selectedAnswers[currentIndex] !== -1 && (
+                        <div className="text-[#004bac] text-sm leading-relaxed">
+                          <strong className="text-slate-800">Explanation:</strong>{" "}
+                          {currentQuestion?.explanation}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Submit Button (only on last question and visible only when not transitioning) */}
+                  {currentIndex === questions.length - 1 && !isTransitioning && (
+                    <div className="border-t border-slate-200 pt-6 bg-white">
+                      <div className="text-center">
+                        <button
+                          onClick={handleSubmit}
+                          className="inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all duration-200 shadow-sm"
+                        >
+                          <svg
+                            className="w-5 h-5 mr-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                          Submit Test
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       ) : (
         <div className="min-h-screen flex items-center justify-center px-4">
           <div className="max-w-2xl mx-auto">
@@ -486,7 +492,7 @@ export default function MockTestAttemptPage() {
                 <div className="text-center mb-8">
                   <div className="inline-flex items-center justify-center w-32 h-32 bg-slate-50 rounded-full mb-6 border-4 border-slate-200">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-slate-700">
+                      <div className="text-3xl font-bold text-[#004bac]">
                         {calculateScore()}
                       </div>
                       <div className="text-sm text-slate-500 font-medium">
@@ -524,7 +530,7 @@ export default function MockTestAttemptPage() {
                         </div>
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-slate-700 mb-1">
+                        <div className="text-2xl font-bold text-[#004bac] mb-1">
                           {questions.length}
                         </div>
                         <div className="text-sm text-slate-600 font-medium">
@@ -535,7 +541,7 @@ export default function MockTestAttemptPage() {
                   </div>
 
                   <button
-                    className="inline-flex items-center px-8 py-3 bg-slate-700 text-white font-semibold rounded-lg hover:bg-slate-800 transition-all duration-200 shadow-sm"
+                    className="inline-flex items-center px-8 py-3 bg-[#004bac] text-white font-semibold rounded-lg hover:bg-slate-800 transition-all duration-200 shadow-sm"
                     onClick={() => {
                       setShowResult(false);
                       setCurrentIndex(0);
@@ -578,10 +584,8 @@ export default function MockTestAttemptPage() {
           position: absolute;
           top: 0; left: 0;
           width: 100%;
-          height: 100%;
           border-radius: 1rem;
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-          overflow: auto;
           background: white;
           user-select: none;
         }
@@ -654,4 +658,3 @@ export default function MockTestAttemptPage() {
     </div>
   );
 }
-

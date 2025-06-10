@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { BookOpen, Play, ArrowRight, Code2, Target } from "lucide-react";
+import { BookOpen, Play, ArrowRight, Code2, Target, CheckCircle, Star, TrendingUp } from "lucide-react";
 
 const beginnerTests = [
   { id: "attempt1", title: "Python Basics Mock Test 1" },
@@ -53,27 +53,33 @@ const levelTestsMap: Record<Level, { id: string; title: string }[]> = {
 
 const levelConfig = {
   beginner: {
-    gradient: "from-blue-500 to-cyan-400",
+    gradient: "from-blue-600 to-blue-700",
     bgColor: "bg-blue-50",
-    darkBgColor: "dark:bg-blue-900/20",
-    textColor: "text-blue-600",
-    darkTextColor: "dark:text-blue-400",
+    darkBgColor: "dark:bg-blue-950/30",
+    textColor: "text-blue-700",
+    darkTextColor: "dark:text-blue-300",
+    borderColor: "border-blue-200",
+    darkBorderColor: "dark:border-blue-800",
     icon: <BookOpen className="w-5 h-5" />
   },
   intermediate: {
-    gradient: "from-purple-500 to-pink-400",
-    bgColor: "bg-purple-50",
-    darkBgColor: "dark:bg-purple-900/20",
-    textColor: "text-purple-600",
-    darkTextColor: "dark:text-purple-400",
+    gradient: "from-indigo-600 to-purple-600",
+    bgColor: "bg-indigo-50",
+    darkBgColor: "dark:bg-indigo-950/30",
+    textColor: "text-indigo-700",
+    darkTextColor: "dark:text-indigo-300",
+    borderColor: "border-indigo-200",
+    darkBorderColor: "dark:border-indigo-800",
     icon: <Code2 className="w-5 h-5" />
   },
   advanced: {
-    gradient: "from-orange-500 to-red-400",
+    gradient: "from-orange-600 to-red-600",
     bgColor: "bg-orange-50",
-    darkBgColor: "dark:bg-orange-900/20",
-    textColor: "text-orange-600",
-    darkTextColor: "dark:text-orange-400",
+    darkBgColor: "dark:bg-orange-950/30",
+    textColor: "text-orange-700",
+    darkTextColor: "dark:text-orange-300",
+    borderColor: "border-orange-200",
+    darkBorderColor: "dark:border-orange-800",
     icon: <Target className="w-5 h-5" />
   }
 };
@@ -83,129 +89,159 @@ const MockTestListPage = () => {
   const level = params?.level as Level;
 
   if (!LEVELS.includes(level)) {
-    return <div>Invalid level</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Invalid Level</h1>
+          <p className="text-gray-600 dark:text-gray-400">Please select a valid difficulty level.</p>
+        </div>
+      </div>
+    );
   }
 
   const tests = levelTestsMap[level];
   const config = levelConfig[level];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 dark:from-slate-900 dark:via-gray-900 dark:to-slate-800">
-      <div className="p-6 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
         
-        {/* Header */}
+        {/* Header Section */}
         <div className="mb-8">
-          <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${config.gradient} text-white px-4 py-2 rounded-full text-sm font-semibold mb-4`}>
+          <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${config.gradient} text-white px-4 py-2 rounded-lg text-sm font-medium mb-4 shadow-sm`}>
             {config.icon}
             {level.charAt(0).toUpperCase() + level.slice(1)} Level
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
             Python Mock Tests
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            Choose any mock test to start your Python practice and prepare for interviews effectively.
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl">
+            Practice with comprehensive mock tests designed to help you master Python and ace your technical interviews.
           </p>
         </div>
 
-        <div className="flex gap-8">
-          {/* Sidebar */}
-          <nav className="w-80 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-6 sticky top-6 h-fit">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white capitalize flex items-center gap-3">
-              {config.icon}
-              {level} Mock Tests
-            </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          
+          {/* Sidebar - Test List */}
+          <div className="lg:col-span-1">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 sticky top-8">
+              <div className="flex items-center gap-3 mb-6">
+                {config.icon}
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white capitalize">
+                  {level} Tests
+                </h2>
+              </div>
 
-            <div className="space-y-2">
-              {tests.map((test, index) => (
-                <Link
-                  key={test.id}
-                  href={`/mock-tests/python/${level}/${test.id}`}
-                  className="group block"
-                >
-                  <div className={`p-4 rounded-xl transition-all duration-300 hover:shadow-lg border-2 border-transparent hover:border-current ${config.bgColor} ${config.darkBgColor} hover:bg-gradient-to-r hover:${config.gradient} hover:text-white`}>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-full ${config.textColor} ${config.darkTextColor} group-hover:text-white bg-white dark:bg-gray-700 group-hover:bg-white/20 flex items-center justify-center text-sm font-bold transition-colors`}>
-                          {index + 1}
+              <div className="space-y-2">
+                {tests.map((test, index) => (
+                  <Link
+                    key={test.id}
+                    href={`/mock-tests/python/${level}/${test.id}`}
+                    className="group block"
+                  >
+                    <div className={`p-4 rounded-lg transition-all duration-200 hover:shadow-md border ${config.borderColor} ${config.darkBorderColor} hover:border-current ${config.bgColor} ${config.darkBgColor} hover:bg-gradient-to-r hover:${config.gradient} hover:text-white hover:border-transparent`}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-7 h-7 rounded-full ${config.textColor} ${config.darkTextColor} group-hover:text-white bg-white dark:bg-gray-700 group-hover:bg-white/20 flex items-center justify-center text-sm font-semibold transition-colors flex-shrink-0`}>
+                            {index + 1}
+                          </div>
+                          <span className={`font-medium ${config.textColor} ${config.darkTextColor} group-hover:text-white transition-colors text-sm`}>
+                            Test {index + 1}
+                          </span>
                         </div>
-                        <span className={`font-medium ${config.textColor} ${config.darkTextColor} group-hover:text-white transition-colors`}>
-                          {test.title}
-                        </span>
+                        <ArrowRight className={`w-4 h-4 ${config.textColor} ${config.darkTextColor} group-hover:text-white group-hover:translate-x-1 transition-all flex-shrink-0`} />
                       </div>
-                      <ArrowRight className={`w-4 h-4 ${config.textColor} ${config.darkTextColor} group-hover:text-white group-hover:translate-x-1 transition-all`} />
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </nav>
+          </div>
 
-          {/* Main content */}
-          <main className="flex-1">
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-8 h-fit">
-              <div className="text-center">
+          {/* Main Content */}
+          <div className="lg:col-span-3">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+              
+              {/* Welcome Section */}
+              <div className="p-8 text-center border-b border-gray-200 dark:border-gray-700">
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${config.gradient} text-white mb-6`}>
                   <Play className="w-8 h-8" />
                 </div>
                 
-                <h1 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">
-                  Select a Mock Test
-                </h1>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  Ready to Test Your Skills?
+                </h3>
                 
-                <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                  Choose any mock test from the sidebar to start your Python practice session. 
-                  Each test is designed to help you prepare for interviews and improve your coding skills.
+                <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto leading-relaxed">
+                  Select any mock test from the sidebar to begin your Python practice session. Each test contains carefully curated questions to enhance your programming skills.
                 </p>
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                  <div className={`${config.bgColor} ${config.darkBgColor} p-6 rounded-xl border border-gray-200 dark:border-gray-600`}>
-                    <div className={`w-12 h-12 ${config.textColor} ${config.darkTextColor} mx-auto mb-4`}>
-                      <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                      </svg>
+              {/* Features Grid */}
+              <div className="p-8">
+                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 text-center">
+                  What You&apos;ll Get
+                </h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className={`${config.bgColor} ${config.darkBgColor} p-6 rounded-xl border ${config.borderColor} ${config.darkBorderColor}`}>
+                    <div className={`${config.textColor} ${config.darkTextColor} mb-4`}>
+                      <CheckCircle className="w-8 h-8" />
                     </div>
-                    <h3 className={`font-semibold mb-2 ${config.textColor} ${config.darkTextColor}`}>Multiple Choice</h3>
+                    <h5 className={`font-semibold mb-2 ${config.textColor} ${config.darkTextColor}`}>
+                      Multiple Choice Questions
+                    </h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Test your knowledge with carefully crafted questions
+                      Well-crafted questions covering key Python concepts and programming fundamentals.
                     </p>
                   </div>
 
-                  <div className={`${config.bgColor} ${config.darkBgColor} p-6 rounded-xl border border-gray-200 dark:border-gray-600`}>
-                    <div className={`w-12 h-12 ${config.textColor} ${config.darkTextColor} mx-auto mb-4`}>
-                      <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                      </svg>
+                  <div className={`${config.bgColor} ${config.darkBgColor} p-6 rounded-xl border ${config.borderColor} ${config.darkBorderColor}`}>
+                    <div className={`${config.textColor} ${config.darkTextColor} mb-4`}>
+                      <Star className="w-8 h-8" />
                     </div>
-                    <h3 className={`font-semibold mb-2 ${config.textColor} ${config.darkTextColor}`}>Instant Results</h3>
+                    <h5 className={`font-semibold mb-2 ${config.textColor} ${config.darkTextColor}`}>
+                      Instant Feedback
+                    </h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Get immediate feedback and detailed explanations
+                      Get immediate results with detailed explanations for each answer.
                     </p>
                   </div>
 
-                  <div className={`${config.bgColor} ${config.darkBgColor} p-6 rounded-xl border border-gray-200 dark:border-gray-600`}>
-                    <div className={`w-12 h-12 ${config.textColor} ${config.darkTextColor} mx-auto mb-4`}>
-                      <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
-                      </svg>
+                  <div className={`${config.bgColor} ${config.darkBgColor} p-6 rounded-xl border ${config.borderColor} ${config.darkBorderColor}`}>
+                    <div className={`${config.textColor} ${config.darkTextColor} mb-4`}>
+                      <TrendingUp className="w-8 h-8" />
                     </div>
-                    <h3 className={`font-semibold mb-2 ${config.textColor} ${config.darkTextColor}`}>Track Progress</h3>
+                    <h5 className={`font-semibold mb-2 ${config.textColor} ${config.darkTextColor}`}>
+                      Progress Tracking
+                    </h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Monitor your improvement over time
+                      Monitor your improvement and identify areas for growth.
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-8 p-6 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 rounded-xl">
-                  <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
-                    💡 Pro Tip
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Start with Test 1 and work your way through sequentially for the best learning experience.
-                  </p>
+                {/* Pro Tip */}
+                <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 rounded-xl border border-blue-200 dark:border-blue-800">
+                  <div className="flex items-start gap-3">
+                    <div className="text-blue-600 dark:text-blue-400 mt-1">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h6 className="font-semibold text-blue-900 dark:text-blue-100 mb-1">
+                        💡 Pro Tip
+                      </h6>
+                      <p className="text-sm text-blue-700 dark:text-blue-300">
+                        For the best learning experience, start with Test 1 and progress sequentially through all tests.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </main>
+          </div>
         </div>
       </div>
     </div>
