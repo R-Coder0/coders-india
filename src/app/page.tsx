@@ -366,10 +366,13 @@ useEffect(() => {
             <div className="w-full lg:w-1/2 relative" data-aos="fade-left">
               {/* Main instructor image */}
               <div className="relative z-10">
-                <img
+                <Image
                   src="/hero.png"
                   alt="Professional instructor"
+                  width={800}
+                  height={600}
                   className="w-full h-auto rounded-lg"
+                  priority
                 />
               </div>
 
@@ -379,9 +382,11 @@ useEffect(() => {
                 data-aos="zoom-in"
                 data-aos-delay="300"
               >
-                <img
+                <Image
                   src="/hero.png"
                   alt="Student with laptop"
+                  width={320}
+                  height={240}
                   className="w-full h-auto rounded-lg"
                 />
               </div>

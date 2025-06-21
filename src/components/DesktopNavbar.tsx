@@ -41,11 +41,14 @@ export default function DesktopNavbar() {
         localStorage.removeItem("user");
       }
     }
-       // Cleanup timeout on unmount
+  }, []);
+
+  // Cleanup timeout on unmount or when menuTimeout changes
+  useEffect(() => {
     return () => {
       if (menuTimeout) clearTimeout(menuTimeout);
     };
-  }, []);
+  }, [menuTimeout]);
 
   const isDark = resolvedTheme === "dark";
 
@@ -69,6 +72,11 @@ export default function DesktopNavbar() {
     setMenuTimeout(timeout);
   };
 
+    // Function to close mega menu immediately when link is clicked
+  const closeMegaMenu = () => {
+    if (menuTimeout) clearTimeout(menuTimeout);
+    setShowMegaMenu(false);
+  };
   return (
     <>
       <nav
@@ -123,14 +131,14 @@ export default function DesktopNavbar() {
                 key={item}
                 href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
                 className="hover:text-primary transition-colors relative"
-                onMouseEnter={() =>
+                onMouseEnter={() => 
                   item === 'Mock Tests' && setShowMegaMenu(true)
                 }
                 onMouseLeave={() => item === 'Mock Tests' && handleMenuLeave()}
               >
                 {item}
                 {item === 'Mock Tests' && showMegaMenu && (
-                  <div className="absolute bottom-0 left-0 w-full h-2"></div>
+                  <div className="absolute bottom-0 left-0 w-full h-2 " ></div>
                 )}
               </Link>
             ))}
@@ -138,6 +146,7 @@ export default function DesktopNavbar() {
               <MockTestMenu
                 onMouseEnter={handleMenuEnter}
                 onMouseLeave={handleMenuLeave}
+                onLinkClick={closeMegaMenu}
               />
             )}
             {/* Theme Toggle */}

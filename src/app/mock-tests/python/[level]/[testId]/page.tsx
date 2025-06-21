@@ -178,7 +178,7 @@ export default function MockTestAttemptPage() {
   const progressPercentage = ((currentIndex + 1) / questions.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pb-2.5 mt-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pb-2.5 mt-6">
       {!showResult ? (
         <>
           {/* Header - Fixed at top */}
@@ -380,7 +380,7 @@ export default function MockTestAttemptPage() {
                           className={`block p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-sm ${
                             isSelected
                               ? "bg-[#004bac] text-white border-[#004bac]"
-                              : "bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100"
+                              : "bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100 text-black"
                           }`}
                         >
                           <div className="flex items-center space-x-3">
@@ -388,7 +388,7 @@ export default function MockTestAttemptPage() {
                               className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-sm font-bold flex-shrink-0 ${
                                 isSelected
                                   ? "border-white bg-white text-[#004bac]"
-                                  : "border-slate-400"
+                                  : "border-slate-400 text-black"
                               }`}
                             >
                               {String.fromCharCode(65 + idx)}
