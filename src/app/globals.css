@@ -10,7 +10,7 @@ h1{
   text-align: left;
 }
 p{
-    /* font-family: "Poppins", sans-serif !important; */
+    font-family: "Poppins", sans-serif !important;
     letter-spacing: 2px;
 }
 thead, tbody, tfoot, tr, td, th {
@@ -26,7 +26,7 @@ thead, tbody, tfoot, tr, td, th {
 }
 @media (max-width: 1450px) {
     p {
-      font-size: 15px !important;
+      font-size: 15px;
       text-align: start;
   }
 }
