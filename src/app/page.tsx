@@ -307,7 +307,7 @@ useEffect(() => {
                 Hey there,
               </p>
               <h1
-                className="text-[2.25rem] lg:text-[3rem] font-bold mb-2 font-mono text-[#004bac]"
+                className="text-[2.25rem] lg:text-[3rem] font-bold mb-2 text-[#004bac]"
                 style={{
                   lineHeight: 1,
                 }}
