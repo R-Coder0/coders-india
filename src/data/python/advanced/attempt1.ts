@@ -8,7 +8,8 @@ export const questions = [
       "Compilation",
       "Encapsulation"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The four main principles of OOP are encapsulation, abstraction, inheritance, and polymorphism. Compilation is a process of converting code to machine language, not an OOP principle."
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@ export const questions = [
       "To use only built-in functions",
       "To avoid writing classes"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "OOP focuses on organizing software design around objects and data rather than functions and logic, making code more modular and reusable."
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@ export const questions = [
       "Encrypting class properties",
       "Creating infinite loops"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Inheritance allows a class to inherit attributes and methods from another class, promoting code reuse and establishing relationships between classes."
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@ export const questions = [
       "One function behaving differently depending on the object",
       "Hiding data from users"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Polymorphism allows methods to do different things based on the object that calls them, often through method overriding or method overloading."
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@ export const questions = [
       "Using loops inside classes",
       "Accessing private methods directly"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Encapsulation is about bundling data with methods that operate on that data and restricting direct access to some of an object's components."
   },
   {
     "id": 6,
@@ -63,7 +68,8 @@ export const questions = [
       "object",
       "class"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "The 'class' keyword is used to define a new class in Python, followed by the class name and a colon."
   },
   {
     "id": 7,
@@ -74,7 +80,8 @@ export const questions = [
       "obj = Class()",
       "create obj Class"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "In Python, objects are created by calling the class name as if it were a function (e.g., Class()). The 'new' keyword is not used in Python."
   },
   {
     "id": 8,
@@ -85,7 +92,8 @@ export const questions = [
       "__start__()",
       "__init__()"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "The __init__() method is Python's constructor that is automatically called when an object is instantiated."
   },
   {
     "id": 9,
@@ -96,7 +104,8 @@ export const questions = [
       "Initialize the object's attributes",
       "Compile the code"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The __init__() method initializes the object's attributes and is called immediately after the object is created."
   },
   {
     "id": 10,
@@ -107,7 +116,8 @@ export const questions = [
       "Syntax Error",
       "None"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "When t = Test() is executed, the __init__() method is called automatically, printing 'Constructor called'."
   },
   {
     "id": 11,
@@ -118,7 +128,8 @@ export const questions = [
       "A global variable",
       "A static method"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The 'self' parameter refers to the current instance of the class and is used to access variables and methods associated with that object."
   },
   {
     "id": 12,
@@ -129,7 +140,8 @@ export const questions = [
       "Python uses a default constructor",
       "The class will be ignored"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Python provides a default constructor if __init__() is not defined, which does nothing but allows object creation."
   },
   {
     "id": 13,
@@ -140,7 +152,8 @@ export const questions = [
       "class A:\n def __init__(self):\n self.name = ''",
       "new A(self.name)"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The correct syntax includes defining the class with the 'class' keyword and initializing attributes in the __init__ method."
   },
   {
     "id": 14,
@@ -151,7 +164,8 @@ export const questions = [
       "None",
       "Error"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "The code creates an object with attribute x set to 5, then prints obj.x, which outputs 5."
   },
   {
     "id": 15,
@@ -162,7 +176,8 @@ export const questions = [
       "A block of conditional statements",
       "A single line of code"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A class is a blueprint or template for creating objects that defines their properties and behaviors."
   },
   {
     "id": 16,
@@ -173,7 +188,8 @@ export const questions = [
       "As many as needed",
       "Depends on memory size"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "You can create multiple instances (objects) from a single class, limited only by system resources."
   },
   {
     "id": 17,
@@ -184,7 +200,8 @@ export const questions = [
       "__init__()",
       "object()"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The __init__() method is automatically called when an object is instantiated from a class."
   },
   {
     "id": 18,
@@ -195,7 +212,8 @@ export const questions = [
       "object::attribute",
       "attribute.object"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "In Python, object attributes are accessed using dot notation: object.attribute."
   },
   {
     "id": 19,
@@ -206,7 +224,8 @@ export const questions = [
       "TypeError is raised",
       "Object is created without attributes"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "If required arguments are missing when creating an object, Python raises a TypeError."
   },
   {
     "id": 20,
@@ -217,6 +236,7 @@ export const questions = [
       "Abstraction",
       "Constructor"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Inheritance enables a class to inherit attributes and methods from another class, creating a parent-child relationship."
   }
 ];

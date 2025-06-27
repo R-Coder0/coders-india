@@ -1,242 +1,242 @@
 export const questions = [
   {
     "id": 1,
-    "question": "What kind of language is Python?",
+    "question": "What is the output of the following code?\n\nprint(2 ** 3 ** 2)",
     "options": [
-      "Interpreted and statically typed",
-      "Compiled and dynamically typed",
-      "Interpreted and dynamically typed",
-      "Compiled and statically typed"
+      "512",
+      "64",
+      "256",
+      "36"
     ],
-    "correctAnswer": 2,
-    "explanation": "Python is an interpreted language, which means that the code is executed line by line, and it is dynamically typed, meaning variable types are determined at runtime."
+    "correctAnswer": 0,
+    "explanation": "Exponentiation is right-to-left, so it's 2 ** (3 ** 2) → 2 ** 9 → 512."
   },
   {
     "id": 2,
-    "question": "Which of the following is NOT true about Python?",
+    "question": "What is the result of this expression?\n\n5 + 3 * 2",
     "options": [
-      "Python is case-sensitive",
-      "Python uses indentation for blocks",
-      "Python does not support object-oriented programming",
-      "Python is a high-level language"
+      "16",
+      "11",
+      "13",
+      "10"
     ],
-    "correctAnswer": 2,
-    "explanation": "Python supports object-oriented programming, so the statement that Python does not support OOP is incorrect."
+    "correctAnswer": 1,
+    "explanation": "Multiplication has higher precedence than addition, so the result is 5 + (3 * 2) = 11."
   },
   {
     "id": 3,
-    "question": "What is the main use of the PEP8 document in Python?",
+    "question": "Which of the following evaluates to True?",
     "options": [
-      "To define Python's error handling",
-      "To optimize memory usage",
-      "To provide style guidelines for writing Python code",
-      "To describe installation procedures for Python"
+      "10 == '10'",
+      "'abc' < 'ABC'",
+      "True and False",
+      "10 != '10'"
     ],
-    "correctAnswer": 2,
-    "explanation": "PEP8 is the Python Enhancement Proposal that provides guidelines on how to write Python code in a consistent style, improving readability."
+    "correctAnswer": 3,
+    "explanation": "10 != '10' evaluates to True because an integer 10 is not equal to the string '10'."
   },
   {
     "id": 4,
-    "question": "Which of the following statements about Python's memory management is true?",
+    "question": "What is the result of 10 // 3?",
     "options": [
-      "Python requires manual memory allocation",
-      "Python does not support garbage collection",
-      "Python uses reference counting and garbage collection",
-      "Python stores all variables in stack memory only"
+      "3.33",
+      "3",
+      "3.0",
+      "4"
     ],
-    "correctAnswer": 2,
-    "explanation": "Python uses both reference counting and garbage collection to manage memory automatically, freeing unused objects."
+    "correctAnswer": 1,
+    "explanation": "// is integer division, so 10 // 3 equals 3."
   },
   {
     "id": 5,
-    "question": "What will the following command do? pip install numpy",
+    "question": "Which operator is used for identity comparison?",
     "options": [
-      "It will install pip in your system",
-      "It will install the Python interpreter",
-      "It will install the numpy package using pip",
-      "It will update Python"
+      "==",
+      "is",
+      ":=",
+      "!="
     ],
-    "correctAnswer": 2,
-    "explanation": "The command `pip install numpy` installs the numpy package, which is used for numerical computations in Python."
+    "correctAnswer": 1,
+    "explanation": "The 'is' operator is used for identity comparison to check if two variables refer to the same object in memory."
   },
   {
     "id": 6,
-    "question": "Which of the following is not a feature of Python?",
+    "question": "What does this expression return?\n\nTrue + False + True",
     "options": [
-      "Portable",
-      "Interpreted",
-      "Low-level language",
-      "Dynamically typed"
+      "True",
+      "2",
+      "1",
+      "Error"
     ],
-    "correctAnswer": 2,
-    "explanation": "Python is a high-level language, not a low-level language. It is portable, interpreted, and dynamically typed."
+    "correctAnswer": 1,
+    "explanation": "True is 1 and False is 0 → 1 + 0 + 1 = 2."
   },
   {
     "id": 7,
-    "question": "Which of the following is true about Python's compilation process?",
+    "question": "Which of these is a logical operator?",
     "options": [
-      "Python code is compiled to machine code before execution",
-      "Python code is directly interpreted without any compilation",
-      "Python is first compiled to bytecode, then interpreted",
-      "Python compiles code at the time of importing modules only"
+      "&",
+      "|",
+      "not",
+      "~"
     ],
     "correctAnswer": 2,
-    "explanation": "Python code is first compiled to bytecode, which is a lower-level representation, and then interpreted by the Python interpreter."
+    "explanation": "In Python, 'not', 'and', and 'or' are logical operators."
   },
   {
     "id": 8,
-    "question": "Which of the following is NOT a valid Python implementation?",
+    "question": "What will 5 & 3 return?",
     "options": [
-      "CPython",
-      "Jython",
-      "PyPy",
-      "RubyPython"
+      "1",
+      "3",
+      "7",
+      "2"
     ],
-    "correctAnswer": 3,
-    "explanation": "RubyPython is not a valid implementation of Python. CPython, Jython, and PyPy are all valid implementations."
+    "correctAnswer": 0,
+    "explanation": "Bitwise AND of 0101 & 0011 → 0001 → 1."
   },
   {
     "id": 9,
-    "question": "What does PEP stand for?",
+    "question": "What will this return?\n\n5 << 1",
     "options": [
-      "Python Essential Package",
-      "Python Enhancement Proposal",
-      "Python Execution Plan",
-      "Python Encoding Protocol"
+      "10",
+      "2",
+      "0",
+      "1"
     ],
-    "correctAnswer": 1,
-    "explanation": "PEP stands for Python Enhancement Proposal, which is a design document providing information or proposing changes to Python."
+    "correctAnswer": 0,
+    "explanation": "Left shift multiplies by 2: 5 * 2 = 10."
   },
   {
     "id": 10,
-    "question": "Why does Python use indentation?",
+    "question": "What is the output of:\n\nx = 5\nx += 3\nprint(x)",
     "options": [
-      "To save space",
-      "To reduce compilation time",
-      "To improve performance",
-      "To define code blocks clearly"
+      "5",
+      "3",
+      "8",
+      "Error"
     ],
-    "correctAnswer": 3,
-    "explanation": "Python uses indentation to define code blocks. This makes the structure of the code visually clear and eliminates the need for braces."
+    "correctAnswer": 2,
+    "explanation": "The '+=' operator adds 3 to the value of x, so the result is 8."
   },
   {
     "id": 11,
-    "question": "Which of the following Python files is automatically created after importing a module?",
+    "question": "What is the output of this comparison?\n\n[1, 2] == [1, 2]",
     "options": [
-      ".py",
-      ".pyc",
-      ".pyo",
-      ".pyd"
+      "True",
+      "False",
+      "Error",
+      "None"
     ],
-    "correctAnswer": 1,
-    "explanation": ".pyc files are automatically created to store compiled bytecode, allowing for faster subsequent imports of modules."
+    "correctAnswer": 0,
+    "explanation": "The '==' operator compares the content of the lists, so it evaluates to True."
   },
   {
     "id": 12,
-    "question": "Which of the following tools helps in managing multiple Python environments?",
+    "question": "Which of the following statements is false?",
     "options": [
-      "pip",
-      "pyenv",
-      "interpreter",
-      "PEP8"
+      "and returns the first falsy value or the last value",
+      "or returns the first truthy value",
+      "not returns True if operand is falsy",
+      "not can return integers"
     ],
-    "correctAnswer": 1,
-    "explanation": "Pyenv helps in managing multiple versions of Python and their environments, making it easier to switch between them."
+    "correctAnswer": 3,
+    "explanation": "The 'not' operator always returns a Boolean value, not integers."
   },
   {
     "id": 13,
-    "question": "Which of the following will give you the current version of Python in your terminal?",
+    "question": "What does the expression '5' + 5 return?",
     "options": [
-      "python --install",
-      "pip --version",
-      "python --version",
-      "python.version()"
+      "10",
+      "'55'",
+      "Error",
+      "None"
     ],
     "correctAnswer": 2,
-    "explanation": "The command `python --version` will display the version of Python installed on your system."
+    "explanation": "You cannot add a string and an integer directly. It will raise a TypeError."
   },
   {
     "id": 14,
-    "question": "What does REPL stand for in Python?",
+    "question": "What does 7 % -3 return?",
     "options": [
-      "Read-Execute-Prompt-Log",
-      "Run-Edit-Print-Load",
-      "Read-Evaluate-Print-Loop",
-      "Run-Encode-Print-Log"
+      "1",
+      "-1",
+      "2",
+      "-2"
     ],
-    "correctAnswer": 2,
-    "explanation": "REPL stands for Read-Evaluate-Print-Loop, a simple interactive environment for Python that reads user input, evaluates it, prints the result, and loops back."
+    "correctAnswer": 3,
+    "explanation": "Python’s modulo result has the same sign as the divisor, so 7 % -3 returns -2."
   },
   {
     "id": 15,
-    "question": "Which of the following is not true about PIP?",
+    "question": "Which operator is used for floor division?",
     "options": [
-      "PIP can install external packages",
-      "PIP is the official package manager for Python",
-      "PIP is used to install Python itself",
-      "PIP can be used to uninstall packages"
+      "%",
+      "//",
+      "/",
+      "\\"
     ],
-    "correctAnswer": 2,
-    "explanation": "PIP is the package manager for Python and is used to install and manage packages, but it is not used to install Python itself."
+    "correctAnswer": 1,
+    "explanation": "The '//' operator is used for floor division in Python."
   },
   {
     "id": 16,
-    "question": "What is the default encoding for Python source files?",
+    "question": "What is the output?\n\na = 10\nb = 20\nprint(a > 5 and b < 30)",
     "options": [
-      "ASCII",
-      "UTF-8",
-      "ISO-8859-1",
-      "Unicode"
+      "True",
+      "False",
+      "Error",
+      "None"
     ],
-    "correctAnswer": 1,
-    "explanation": "The default encoding for Python source files is UTF-8, which supports a wide range of characters from different languages."
+    "correctAnswer": 0,
+    "explanation": "Both conditions are true, so the result is True."
   },
   {
     "id": 17,
-    "question": "Which of the following is a valid statement about Python's typing system?",
+    "question": "What will this return?\n\nnot 0",
     "options": [
-      "Python supports only strong static typing",
-      "Python uses weak typing",
-      "Python uses dynamic and strong typing",
-      "Python uses compile-time type checking"
+      "0",
+      "1",
+      "True",
+      "False"
     ],
     "correctAnswer": 2,
-    "explanation": "Python uses dynamic typing, meaning the type of a variable is determined at runtime, and it also supports strong typing to prevent unintended type conversions."
+    "explanation": "0 is falsy, so 'not' inverts it to True."
   },
   {
     "id": 18,
-    "question": "Which of the following correctly describes Python's philosophy?",
+    "question": "Which is not a comparison operator?",
     "options": [
-      "\"There should be many ways to do one thing\"",
-      "\"Performance over readability\"",
-      "\"There should be one—and preferably only one—obvious way to do it\"",
-      "\"Errors should never be raised\""
+      "!=",
+      ">=",
+      "<>",
+      "is"
     ],
     "correctAnswer": 2,
-    "explanation": "Python's philosophy emphasizes readability and simplicity, with a focus on having one obvious way to do something."
+    "explanation": "<> is invalid in Python 3. Use != instead."
   },
   {
     "id": 19,
-    "question": "What is the output of the following command? python import this",
+    "question": "What does this return?\n\n1 < 2 < 3",
     "options": [
-      "Python copyright info",
-      "Current Python version",
-      "The Zen of Python",
-      "List of installed modules"
+      "True",
+      "False",
+      "Error",
+      "None"
     ],
-    "correctAnswer": 2,
-    "explanation": "The command `python import this` outputs 'The Zen of Python', a collection of guiding principles for writing Pythonic code."
+    "correctAnswer": 0,
+    "explanation": "Chained comparisons are allowed in Python, so 1 < 2 < 3 evaluates to True."
   },
   {
     "id": 20,
-    "question": "What is the purpose of the __pycache__ directory?",
+    "question": "What is the result of:\n\n(4 > 2) + (3 == 3) + (2 < 1)",
     "options": [
-      "It stores user-created logs",
-      "It stores compiled bytecode files",
-      "It holds all the pip packages",
-      "It stores backup scripts"
+      "1",
+      "2",
+      "3",
+      "Error"
     ],
     "correctAnswer": 1,
-    "explanation": "__pycache__ stores compiled bytecode files (e.g., .pyc files) that are used to speed up the execution of Python programs by avoiding recompilation."
+    "explanation": "True (1) + True (1) + False (0) = 2."
   }
 ];

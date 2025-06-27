@@ -90,7 +90,14 @@ export default function MockTestMenu({
       icon: "/images/languages/bs.png",
       description: "Evaluate responsive design skills.",
       href: "/mock-tests/bootstrap"
-    }
+    },
+    {
+      name: "Power bi",
+      icon: "/images/languages/bi.png",
+      description: "Evaluate responsive design skills.",
+      href: "/mock-tests/powerbi"
+    },
+
   ];
 
   const handleLinkClick = () => {
@@ -140,9 +147,9 @@ export default function MockTestMenu({
                 <h3 className="font-semibold text-gray-900 text-base mb-1 group-hover:text-blue-600 transition-colors duration-200">
                   {category.name}
                 </h3>
-                <p className="text-gray-600 leading-relaxed"
+                <p className="text-gray-600 leading-relaxed text-sm"
                 style={{
-                  fontSize: '0.875rem', // 14px
+                  fontSize: '12px', // 14px
                 }}
                 >
                   {category.description}
