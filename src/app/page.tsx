@@ -39,33 +39,33 @@ export default function Home() {
     AOS.init({ duration: 800, once: true });
   }, []);
   interface Counters {
-    years: number;
-    experts: number;
-    projectsOnTime: number;
+    learners: number;
+    questionsSolved: number;
+    mockTests: number;
     returnRate: number;
   }
-// In your component:
-const [counters, setCounters] = useState<Counters>({
-  years: 0,
-  experts: 0,
-  projectsOnTime: 0,
-  returnRate: 0,
-});
+  // In your component:
+  const [counters, setCounters] = useState<Counters>({
+    learners: 0,
+    questionsSolved: 0,
+    mockTests: 0,
+    returnRate: 0,
+  });
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-// Animate counters on component mount
-useEffect(() => {
-  const targetValues: Counters = {
-    years: 13,
-    experts: 150,
-    projectsOnTime: 98,
-    returnRate: 93,
-  };
+  // Animate counters on component mount
+  useEffect(() => {
+    const targetValues: Counters = {
+      learners: 2500,
+      questionsSolved: 12000,
+      mockTests: 5000,
+      returnRate: 87,
+    };
 
     const duration = 2000;
-    const frameDuration = 20; 
+    const frameDuration = 20;
     const steps = duration / frameDuration;
 
     const increments = Object.entries(targetValues).reduce(
@@ -75,16 +75,16 @@ useEffect(() => {
       },
       {} as Record<keyof Counters, number>
     );
-  
+
 
     let frame = 0;
 
     const interval = setInterval(() => {
       frame++;
-  
+
       setCounters((prevCounters) => {
         const newCounters = { ...prevCounters };
-  
+
         (Object.keys(targetValues) as Array<keyof Counters>).forEach((key) => {
           if (frame < steps) {
             newCounters[key] = Math.round(increments[key] * frame);
@@ -92,15 +92,15 @@ useEffect(() => {
             newCounters[key] = targetValues[key];
           }
         });
-  
+
         return newCounters;
       });
-  
+
       if (frame >= steps) {
         clearInterval(interval);
       }
     }, frameDuration);
-  
+
     return () => clearInterval(interval);
   }, []);
 
@@ -323,14 +323,10 @@ useEffect(() => {
                   textAlign: "left",
                 }}
               >
-                Welome to AI and coding World
+                Start Coding with Confidence – Learn by Doing
               </h2>
               <p className="text-lg pb-3 mb-6 font-medium">
-                Unlock your coding potential! Whether you&apos;re a beginner or
-                leveling up, our platform offers hands-on tutorials, real world
-                assignments, mock tests, and practice questions. Learn,
-                practice, and master coding—all in one place. Start your journey
-                today and turn passion into expertise!
+                Ready to kickstart your coding journey or take your skills to the next level? Our platform is built for learners at every stage — with easy-to-follow tutorials, real-world assignments, mock tests, and practical coding challenges. Learn, practice, and grow all in one place. Turn your passion for coding into real expertise — get started today!̉
               </p>
               <div className="w-full max-w-md mx-auto lg:mx-0">
                 <div className="relative">
@@ -366,23 +362,29 @@ useEffect(() => {
             <div className="w-full lg:w-1/2 relative" data-aos="fade-left">
               {/* Main instructor image */}
               <div className="relative z-10">
-                <img
+                <Image
                   src="/hero.png"
                   alt="Professional instructor"
+                  width={600}
+                  height={400}
                   className="w-full h-auto rounded-lg"
+                  priority
                 />
               </div>
 
-              {/* Floating student image with laptop */}
+              {/* Floating student image with laptop   */}
               <div
-                className="absolute top-1/4 -left-8 lg:-left-16 z-20 w-40 lg:w-64 rounded-lg shadow-lg"
+                className="absolute top-1/4 -left-8 lg:-left-20 z-20 w-40 lg:w-64 rounded-lg shadow-lg"
                 data-aos="zoom-in"
                 data-aos-delay="300"
               >
-                <img
-                  src="/hero.png"
+                <Image
+                  src="/images/Hero.jpg"
                   alt="Student with laptop"
+                  width={320}
+                  height={213}
                   className="w-full h-auto rounded-lg"
+                  priority
                 />
               </div>
 
@@ -393,7 +395,7 @@ useEffect(() => {
                 data-aos-delay="500"
                 style={{}}
               >
-                <p className="text-4xl font-bold">500+</p>
+                <p className="text-4xl font-bold">120+</p>
                 <p className="text-lg font-medium">TUTORIALS</p>
               </div>
 
@@ -419,157 +421,135 @@ useEffect(() => {
 
       {/* ----------------------About ---------------------- */}
       <section className="py-16 px-4 container">
-        <div className="max-w-7xl mx-auto">
+        <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Right side counters */}
             <div className="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Years in Business */}
+              {/* Learners Enrolled */}
               <div
                 className="border-b-2 border-[#004bca] rounded-lg p-6 shadow-sm relative z-10 overflow-hidden"
                 style={{
                   backgroundImage: `url('/images/c3.jpg')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  minHeight: "200px", // Add height to ensure image is visible
+                  minHeight: "200px",
                 }}
               >
-                {/* Add a dark overlay to make text readable */}
                 <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
                 <div className="relative z-10">
-                  <h3 className="text-white font-medium mb-2">
-                    Years in Business
-                  </h3>
+                  <h3 className="text-white font-medium mb-2">Learners Enrolled</h3>
                   <div className="text-4xl lg:text-5xl font-bold text-white mb-3">
-                    {counters.years}+
+                    {counters.learners}+
                   </div>
                   <p className="text-white text-sm">
-                    We boast more than a decade of experience in the software
-                    development industry.
+                    Thousands of students and professionals trust Coders India to upgrade their skills.
                   </p>
                 </div>
               </div>
 
-              {/* Full Time Experts */}
+              {/* Practice Questions Solved */}
               <div
                 className="border-b-2 border-[#004bca] rounded-lg p-6 shadow-sm relative z-10 overflow-hidden"
                 style={{
                   backgroundImage: `url('/images/c1.jpg')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  minHeight: "200px", // Add height to ensure image is visible
+                  minHeight: "200px",
                 }}
               >
-                {/* Add a dark overlay to make text readable */}
                 <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
-                {/* Content with higher z-index to appear above the background */}
                 <div className="relative z-10">
-                  <h3 className="text-white font-medium mb-2">
-                    Full Time Experts
-                  </h3>
+                  <h3 className="text-white font-medium mb-2">Practice Questions Solved</h3>
                   <div className="text-4xl lg:text-5xl font-bold text-white mb-3">
-                    {counters.experts}+
+                    {counters.questionsSolved}+
                   </div>
                   <p className="text-white text-sm">
-                    We have highly experienced & skilled professionals to build
-                    your product.
+                    Boost your coding confidence with our extensive problem-solving practice bank.
                   </p>
                 </div>
               </div>
 
-              {/* Projects Delivered On-Time */}
+              {/* Mock Tests Attempted */}
               <div
                 className="border-b-2 border-[#004bca] rounded-lg p-6 shadow-sm relative z-10 overflow-hidden"
                 style={{
                   backgroundImage: `url('/images/c2.jpg')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  minHeight: "200px", // Add height to ensure image is visible
+                  minHeight: "200px",
                 }}
               >
-                {/* Add a dark overlay to make text readable */}
                 <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
-                {/* Content with higher z-index to appear above the background */}
                 <div className="relative z-10">
-                  <h3 className="text-white font-medium mb-2">
-                    Full Time Experts
-                  </h3>
+                  <h3 className="text-white font-medium mb-2">Mock Tests Attempted</h3>
                   <div className="text-4xl lg:text-5xl font-bold text-white mb-3">
-                    {counters.experts}+
+                    {counters.mockTests}+
                   </div>
                   <p className="text-white text-sm">
-                    We have highly experienced & skilled professionals to build
-                    your product.
+                    Prepare for job interviews and exams with industry-relevant mock tests.
                   </p>
                 </div>
               </div>
 
-              {/* Clients Return for Additional Projects */}
+              {/* Repeat Learners */}
               <div
                 className="border-b-2 border-[#004bca] rounded-lg p-6 shadow-sm relative z-10 overflow-hidden"
                 style={{
                   backgroundImage: `url('/images/c4.jpg')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  minHeight: "200px", // Add height to ensure image is visible
+                  minHeight: "200px",
                 }}
               >
-                {/* Add a dark overlay to make text readable */}
                 <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
                 <div className="relative z-10">
-                  <h3 className="text-white font-medium mb-2">
-                    Clients Return for Additional Projects
-                  </h3>
+                  <h3 className="text-white font-medium mb-2">Repeat Learners</h3>
                   <div className="text-4xl lg:text-5xl font-bold text-white mb-3">
                     {counters.returnRate}%
                   </div>
                   <p className="text-white text-sm">
-                    Impressive client retention rate, underscoring our
-                    commitment to client satisfaction.
+                    Most learners return for more — a true reflection of our platform’s value.
                   </p>
                 </div>
               </div>
             </div>
+
             {/* Left side content */}
             <div className="lg:w-1/2">
               <div className="inline-block mb-2 rounded-full bg-primary/10 py-1">
                 <span className="flex items-center text-sm font-medium text-primary">
                   <Sparkles className="mr-1 h-4 w-4" />
-                  Your coding journey starts here
+                  Start Your Developer Journey with Coders India
                 </span>
               </div>
 
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                <span className="text-[#004bac]">Top Professionals for</span>{" "}
-                Turning Your Business Idea into Custom Software Solutions
+                <span className="text-[#004bac]">Learn. Code. Succeed.</span> Build Real Skills with Practical Learning
               </h2>
 
-              <p className=" mb-8">
-                We are Coders India, a pioneering digital product and software
-                development company with a team of 150+ expert software
-                developers, QA engineers, project managers, and business experts
-                dedicated to crafting bespoke software products, applications,
-                and operational systems for SMEs & enterprises. With 13+ years
-                of expertise and a track record of successfully delivering 4000+
-                web, app, and software projects, we have established efficient
-                processes that ensure the right results, on time, and within
-                budget.
+              <p className="mb-8">
+                Coders India is your go-to learning platform for coding, development, and tech skills.
+                Whether you&apos;re a beginner or an experienced developer, our platform offers step-by-step tutorials,
+                hands-on projects, mock tests, and interview prep — everything you need to grow as a software professional.
+                Join thousands of learners and transform your potential into real-world expertise.
               </p>
 
               <button className="bg-[#004bac] hover:bg-transparent border border-[#004bac] hover:text-[#004bac] text-white px-6 py-3 rounded-sm flex items-center font-medium transition-colors">
-                Explore More
+                Explore Courses
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </div>
           </div>
         </div>
       </section>
+
       {/* ---------------------- Why Choose Section ---------------------- */}
       <section
-        className="bg-gradient-to-b from-background to-background/95 text-foreground py-2 px-4 container"
+        className="bg-gradient-to-b from-background to-background/95 text-foreground pt-2 pb-4 px-4 container"
         data-aos="fade-up"
       >
         <div
-          className="max-w-7xl mx-auto text-left md:text-center"
+          className="container mx-auto text-left md:text-center"
           data-aos="zoom-in"
         >
           <div
@@ -606,11 +586,10 @@ useEffect(() => {
             {features.map((item, index) => (
               <div
                 key={index}
-                className={`rounded-xl border bg-card p-8 shadow-md transition-all duration-300 ${
-                  hoveredCard === index
-                    ? "transform -translate-y-2 shadow-xl border-primary/20"
-                    : ""
-                }`}
+                className={`rounded-xl border bg-card p-8 shadow-md transition-all duration-300 ${hoveredCard === index
+                  ? "transform -translate-y-2 shadow-xl border-primary/20"
+                  : ""
+                  }`}
                 data-aos="zoom-in-up"
                 data-aos-delay={`${index * 100}`}
                 onMouseLeave={() => setHoveredCard(null)}
@@ -635,7 +614,7 @@ useEffect(() => {
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-pink-200 dark:bg-pink-900 rounded-full opacity-20 blur-xl"></div>
         <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-purple-200 dark:bg-purple-900 rounded-full opacity-10 blur-xl"></div>
 
-        <div className="max-w-7xl mx-auto text-left md:text-center relative z-10">
+        <div className="container mx-auto text-left md:text-center relative z-10">
           <div
             className="inline-block mb-2 p-1 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm rounded-full"
             data-aos="fade-down"
@@ -770,7 +749,7 @@ useEffect(() => {
       </section>
       {/* ---------------------- Python Section ---------------------- */}
       <section className="py-16 px-6 bg-gradient-to-br from-white via-blue-50 to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <div data-aos="fade-right">
             <div className="flex items-center gap-4 mb-4">
@@ -789,8 +768,28 @@ useEffect(() => {
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 font-medium">
               {pythonSection.subtitle}
             </p>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
               {pythonSection.description}
+            </p>
+
+            {/* NEW: Key Benefits List */}
+            <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-6 space-y-2">
+              <li>Beginner to Advanced Python concepts covered</li>
+              <li>Real-world problem solving using DSA</li>
+              <li>Interactive mock tests and coding practice</li>
+              <li>Assignments with expert review and feedback</li>
+              <li>Ideal for placements, interviews, and competitive exams</li>
+            </ul>
+
+            {/* NEW: Testimonial-style highlight */}
+            <blockquote className="italic text-sm text-gray-500 dark:text-gray-400 border-l-4 pl-4 border-blue-500 mb-6">
+              “The Python DSA track helped me crack top tech interviews with confidence. Highly recommend!”
+            </blockquote>
+
+            {/* NEW: Supporting CTA paragraph */}
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              Whether you&apos;re preparing for job interviews, internships, or simply building strong programming foundations — our Python + DSA course is structured to give you clarity, confidence, and coding power.
             </p>
 
             <button className="px-6 py-3 bg-[#004bac] hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-all">
@@ -799,8 +798,7 @@ useEffect(() => {
           </div>
 
           {/* Right Image */}
-          <div             data-aos="fade-up"
-            data-aos-delay="200">
+          <div data-aos="fade-up" data-aos-delay="200">
             <Image
               src={pythonSection.image}
               alt="Python DSA Code Screenshot"
@@ -811,9 +809,10 @@ useEffect(() => {
           </div>
         </div>
       </section>
+
       {/* ---------------------- Roadmap Section ---------------------- */}
       <section className="pt-10 pb-4 bg-gradient-to-b from-white via-blue-50 to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Right: Image */}
           <div className="w-full hidden md:flex justify-center" data-aos="fade-left">
             <Image

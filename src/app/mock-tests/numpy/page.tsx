@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import {
-  BookOpenCheck,
-  BarChart2,
-  Database,
+  Calculator,
+  TrendingUp,
+  Cpu,
   ArrowRight,
-  LayoutDashboard,
+  Activity,
   Trophy,
   Zap,
   Clock,
@@ -16,55 +16,55 @@ const levels = [
   {
     name: "Beginner",
     description:
-      "Start your Power BI journey with basic concepts, data loading, and simple visualizations.",
-    longDescription: "Perfect for newcomers to Power BI",
-    icon: <BookOpenCheck className="w-10 h-10 text-blue-600" />,
+      "Start your NumPy journey with basic array operations, indexing, and fundamental concepts.",
+    longDescription: "Perfect for Python developers new to NumPy",
+    icon: <Calculator className="w-10 h-10 text-green-600" />,
     slug: "beginner",
-    gradient: "from-blue-600 to-blue-500",
-    bgGradient: "from-blue-50 to-blue-100",
-    hoverGradient: "hover:from-blue-700 hover:to-blue-600",
-    shadowColor: "shadow-blue-200",
-    borderColor: "border-blue-200",
-    textColor: "text-blue-900",
+    gradient: "from-green-600 to-green-500",
+    bgGradient: "from-green-50 to-green-100",
+    hoverGradient: "hover:from-green-700 hover:to-green-600",
+    shadowColor: "shadow-green-200",
+    borderColor: "border-green-200",
+    textColor: "text-green-900",
     image:
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233B82F6'/%3E%3Cstop offset='100%25' style='stop-color:%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23bg1)'/%3E%3Cg opacity='0.2'%3E%3Ccircle cx='100' cy='100' r='40' fill='white'/%3E%3Ccircle cx='300' cy='200' r='30' fill='white'/%3E%3Crect x='200' y='50' width='60' height='60' rx='10' fill='white'/%3E%3C/g%3E%3Ctext x='200' y='160' text-anchor='middle' fill='white' font-size='32' font-weight='bold'%3EPBI%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2310B981'/%3E%3Cstop offset='100%25' style='stop-color:%23059669'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23bg1)'/%3E%3Cg opacity='0.2'%3E%3Crect x='50' y='80' width='80' height='60' rx='8' fill='white'/%3E%3Crect x='150' y='100' width='100' height='80' rx='8' fill='white'/%3E%3Crect x='270' y='90' width='70' height='70' rx='8' fill='white'/%3E%3C/g%3E%3Ctext x='200' y='160' text-anchor='middle' fill='white' font-size='28' font-weight='bold'%3EArrays%3C/text%3E%3C/svg%3E",
     features: [
-      "Basic Visualizations",
-      "Data Loading",
-      "Simple Dashboards",
-      "Report Sharing",
+      "Array Creation & Basics",
+      "Indexing & Slicing",
+      "Basic Operations",
+      "Array Attributes",
     ],
     comingSoon: true
   },
   {
     name: "Intermediate",
     description:
-      "Enhance your Power BI skills with DAX formulas, data modeling, and advanced visualizations.",
-    longDescription: "Build professional dashboards with confidence",
-    icon: <BarChart2 className="w-10 h-10 text-indigo-600" />,
+      "Advance your NumPy skills with broadcasting, linear algebra, and statistical operations.",
+    longDescription: "Build data science foundations with confidence",
+    icon: <TrendingUp className="w-10 h-10 text-orange-600" />,
     slug: "intermediate",
-    gradient: "from-indigo-600 to-indigo-500",
-    bgGradient: "from-indigo-50 to-indigo-100",
-    hoverGradient: "hover:from-indigo-700 hover:to-indigo-600",
-    shadowColor: "shadow-indigo-200",
-    borderColor: "border-indigo-200",
-    textColor: "text-indigo-900",
+    gradient: "from-orange-600 to-orange-500",
+    bgGradient: "from-orange-50 to-orange-100",
+    hoverGradient: "hover:from-orange-700 hover:to-orange-600",
+    shadowColor: "shadow-orange-200",
+    borderColor: "border-orange-200",
+    textColor: "text-orange-900",
     image:
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='bg2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366F1'/%3E%3Cstop offset='100%25' style='stop-color:%234F46E5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23bg2)'/%3E%3Cg opacity='0.2'%3E%3Cpolygon points='150,80 200,50 250,80 250,130 200,160 150,130' fill='white'/%3E%3Ccircle cx='100' cy='200' r='35' fill='white'/%3E%3Crect x='280' y='180' width='50' height='50' rx='8' fill='white'/%3E%3C/g%3E%3Ctext x='200' y='160' text-anchor='middle' fill='white' font-size='28' font-weight='bold'%3EDAX%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='bg2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23F59E0B'/%3E%3Cstop offset='100%25' style='stop-color:%23D97706'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23bg2)'/%3E%3Cg opacity='0.2'%3E%3Cpath d='M100,80 L150,60 L200,80 L200,130 L150,150 L100,130 Z' fill='white'/%3E%3Ccircle cx='280' cy='100' r='35' fill='white'/%3E%3Crect x='120' y='180' width='160' height='40' rx='20' fill='white'/%3E%3C/g%3E%3Ctext x='200' y='160' text-anchor='middle' fill='white' font-size='24' font-weight='bold'%3EBroadcast%3C/text%3E%3C/svg%3E",
     features: [
-      "DAX Formulas",
-      "Data Modeling",
-      "Advanced Visuals",
-      "Power Query",
+      "Broadcasting Rules",
+      "Linear Algebra",
+      "Statistical Functions",
+      "Array Manipulation",
     ],
     comingSoon: false
   },
   {
     name: "Advanced",
     description:
-      "Master Power BI with performance optimization, complex DAX, custom visuals, and deployment.",
-    longDescription: "Become a Power BI expert and mentor others",
-    icon: <Database className="w-10 h-10 text-purple-600" />,
+      "Master NumPy with performance optimization, advanced indexing, custom ufuncs, and memory management.",
+    longDescription: "Become a NumPy expert and optimize for production",
+    icon: <Cpu className="w-10 h-10 text-purple-600" />,
     slug: "advanced",
     gradient: "from-purple-600 to-purple-500",
     bgGradient: "from-purple-50 to-purple-100",
@@ -73,40 +73,40 @@ const levels = [
     borderColor: "border-purple-200",
     textColor: "text-purple-900",
     image:
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='bg3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%239333EA'/%3E%3Cstop offset='100%25' style='stop-color:%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23bg3)'/%3E%3Cg opacity='0.2'%3E%3Cpath d='M150,100 L200,70 L250,100 L280,150 L250,200 L200,230 L150,200 L120,150 Z' fill='white'/%3E%3Ccircle cx='320' cy='80' r='15' fill='white'/%3E%3Ccircle cx='80' cy='220' r='25' fill='white'/%3E%3C/g%3E%3Ctext x='200' y='160' text-anchor='middle' fill='white' font-size='24' font-weight='bold'%3EPower BI%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='bg3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%238B5CF6'/%3E%3Cstop offset='100%25' style='stop-color:%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23bg3)'/%3E%3Cg opacity='0.2'%3E%3Cpath d='M150,100 L200,70 L250,100 L280,150 L250,200 L200,230 L150,200 L120,150 Z' fill='white'/%3E%3Ccircle cx='320' cy='80' r='15' fill='white'/%3E%3Ccircle cx='80' cy='220' r='25' fill='white'/%3E%3C/g%3E%3Ctext x='200' y='160' text-anchor='middle' fill='white' font-size='20' font-weight='bold'%3EPerformance%3C/text%3E%3C/svg%3E",
     features: [
       "Performance Optimization",
-      "Complex DAX",
-      "Custom Visuals",
-      "Enterprise Deployment",
+      "Advanced Indexing",
+      "Custom Ufuncs",
+      "Memory Management",
     ],
     comingSoon: true
   },
 ];
 
-const PowerBIMockTestLevels = () => {
+const NumPyMockTestLevels = () => {
   const router = useRouter();
 
   const handleLevelClick = (slug: string, comingSoon: boolean) => {
     if (comingSoon) return;
-    router.push(`/mock-tests/powerbi/${slug}`);
+    router.push(`/mock-tests/numpy/${slug}`);
   };
 
   return (
-    <div className="min-h-screen py-16 px-6 bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50">
+    <div className="min-h-screen py-16 px-6 bg-gradient-to-br from-gray-50 via-green-50 to-gray-50">
       {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-green-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
-            <LayoutDashboard className="w-4 h-4" />
-            Power BI Certification Path
+          <div className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
+            <Activity className="w-4 h-4" />
+            NumPy Mastery Path
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900"
           style={{
@@ -116,8 +116,7 @@ const PowerBIMockTestLevels = () => {
             Choose Your Level
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Embark on your Power BI journey with our comprehensive mock tests
-            designed for every skill level
+            Master NumPy with our comprehensive mock tests designed for every skill level - from arrays to advanced operations
           </p>
         </div>
 
@@ -126,7 +125,7 @@ const PowerBIMockTestLevels = () => {
             <div
               key={level.slug}
               onClick={() => handleLevelClick(level.slug, level.comingSoon)}
-              className={`group relative bg-white border-2 ${level.borderColor} rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl ${level.shadowColor} h-[520px] cursor-pointer ${level.comingSoon ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+              className={`group relative bg-white border-2 ${level.borderColor} rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl ${level.shadowColor} h-[520px] ${level.comingSoon ? 'cursor-not-allowed' : 'cursor-pointer'}`}
             >
               {/* Coming Soon Overlay */}
               {level.comingSoon && (
@@ -219,4 +218,4 @@ const PowerBIMockTestLevels = () => {
   );
 };
 
-export default PowerBIMockTestLevels;
+export default NumPyMockTestLevels;
